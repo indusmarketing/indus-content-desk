@@ -71,6 +71,8 @@ drop policy if exists "team can update posts" on public.posts;
 create policy "team can update posts" on public.posts
   for update to authenticated using (true) with check (true);
 
+grant select, update on public.posts to authenticated;
+
 -- No insert or delete policy: the dashboard cannot add or remove posts.
 
 -- Live updates between viewers.
